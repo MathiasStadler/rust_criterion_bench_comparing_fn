@@ -1,5 +1,5 @@
 
-# rust benmark
+# rust benchmarks
 
 # This is a quick walkthrough for adding Criterion.rs benchmarks to an existing crate
 
