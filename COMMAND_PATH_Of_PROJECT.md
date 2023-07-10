@@ -91,4 +91,62 @@ touch COMMAND_PATH_Of_PROJECT.md <= THIS FILE
 cargo add --dev criterion
 ```
 
-## 
+---
+
+# Tutorial start now
+
+## delete file from template
+
+```bash
+ls src/lib.rs && rm $_
+```
+
+## create new lib.rs with content
+
+```bash
+tee -a  ./src/lib.rs << END 
+#[inline]
+fn fibonacci(n: u64) -> u64 {
+    match n {
+        0 => 1,
+        1 => 1,
+        n => fibonacci(n-1) + fibonacci(n-2),
+    }
+}
+END
+```
+
+## Add bench Dependency to Cargo.toml
+
+```bash
+tee -a  ./Cargo.toml <<  END 
+
+[[bench]]
+name = "my_benchmark"
+harness = false
+
+END
+```
+
+## create benches subfolder 
+
+```bash
+mkdir ./benches
+```
+
+## Add Benchmark
+
+```bash
+tee -a  ./benches/my_benchmark.rs << END
+use criterion::{black_box, criterion_group, criterion_main, Criterion};
+use mycrate::fibonacci;
+
+pub fn criterion_benchmark(c: &mut Criterion) {
+    c.bench_function("fib 20", |b| b.iter(|| fibonacci(black_box(20))));
+}
+
+criterion_group!(benches, criterion_benchmark);
+criterion_main!(benches);
+
+END
+```
