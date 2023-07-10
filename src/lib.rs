@@ -9,14 +9,14 @@ pub fn fibonacci_old(n: u64) -> u64 {
 
 #[inline]
 pub fn fibonacci(n: u64) -> u64 {
-    let mut a = 0;
-    let mut b = 1;
+    let mut a: u64 = 0;
+    let mut b: u64 = 1;
 
     match n {
         0 => b,
         _ => {
             for _ in 0..n {
-                let c = a + b;
+                let c: u64 = a + b;
                 a = b;
                 b = c;
             }
@@ -24,3 +24,4 @@ pub fn fibonacci(n: u64) -> u64 {
         }
     }
 }
+
