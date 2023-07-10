@@ -28,6 +28,12 @@ fn main() {
     print(slow(9));
     print(slow(0));
 
+    // from here 
+    // https://dev.to/kelvinkirima014/generating-the-nth-fibonacci-in-rust-238k
+    for int in 0..15 {
+        println! ( " {} {:?} ", int,print(slow(int)));
+    }
+
     // Compiling error
     // print(slow('w'));
 }
