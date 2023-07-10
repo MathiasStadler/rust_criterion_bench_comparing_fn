@@ -1,6 +1,8 @@
 /*
 challenge with Result
 in progress
+follow here
+https://doc.rust-lang.org/rust-by-example/error/result/early_returns.html
 */
 
 use rust_criterion_bench_comparing_fn::*;
