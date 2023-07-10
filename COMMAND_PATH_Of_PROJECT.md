@@ -106,7 +106,7 @@ ls src/lib.rs && rm $_
 ```bash
 tee -a  ./src/lib.rs << END 
 #[inline]
-fn fibonacci(n: u64) -> u64 {
+pub fn fibonacci(n: u64) -> u64 {
     match n {
         0 => 1,
         1 => 1,
@@ -128,7 +128,7 @@ harness = false
 END
 ```
 
-## create benches subfolder 
+## create benches subfolder
 
 ```bash
 mkdir ./benches
@@ -139,7 +139,8 @@ mkdir ./benches
 ```bash
 tee -a  ./benches/my_benchmark.rs << END
 use criterion::{black_box, criterion_group, criterion_main, Criterion};
-use mycrate::fibonacci;
+use rust_criterion_bench_comparing_fn::fibonacci;
+//use mycrate::fibonacci;
 
 pub fn criterion_benchmark(c: &mut Criterion) {
     c.bench_function("fib 20", |b| b.iter(|| fibonacci(black_box(20))));
