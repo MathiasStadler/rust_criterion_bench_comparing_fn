@@ -1,5 +1,7 @@
 
 // works
+// run command
+// cargo run --example main_result_second
 
 use rust_criterion_bench_comparing_fn::*;
 

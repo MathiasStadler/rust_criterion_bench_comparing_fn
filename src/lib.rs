@@ -27,19 +27,20 @@ pub fn fibonacci_fast(n: u64) -> u64 {
 
 
 #[inline]
-pub fn fibonacci_fast_result(n: u64) -> u64 {
+pub fn fibonacci_fast_result<T,E>(n: u64) -> Result<u64, &'static str> {
+    
     let mut a: u64 = 0;
     let mut b: u64 = 1;
 
     match n {
-        0 => b,
+        0 => Err("Fibonacci start with at 1"),
         _ => {
             for _ in 0..n {
                 let c: u64 = a + b;
                 a = b;
                 b = c;
             }
-            b
+            Ok(b)
         }
     }
 }
