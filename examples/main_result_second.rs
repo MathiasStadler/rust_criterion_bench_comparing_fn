@@ -1,3 +1,6 @@
+
+// works
+
 use rust_criterion_bench_comparing_fn::*;
 
 fn slow(_input: u64) -> u64 {
@@ -13,6 +16,6 @@ fn fast(_input: u64) -> u64 {
 }
 
 fn main() {
-    println!("slow version => {:?} ", slow(9));
-    println!("fast version => {:?} ", fast(9));
+    println!("slow version => {:?} ", slow(8));
+    println!("fast version => {:?} ", fast(8));
 }

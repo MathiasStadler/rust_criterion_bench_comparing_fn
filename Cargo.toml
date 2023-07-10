@@ -15,3 +15,5 @@ criterion = "0.5.1"
 name = "my_benchmark"
 harness = false
 
+[[example]]
+name="main_result_one"
