@@ -7,6 +7,23 @@ pub fn fibonacci_slow(n: u64) -> u64 {
     }
 }
 
+pub fn fibonacci_slow_result<T,E>(n: u64, my_err: &'static str) -> Result<u64, &'static str> {
+    
+
+    match n {
+        0 => Err("Fibonacci start with at 1"),
+        1 => Ok(1),
+        _ => { fibonacci_slow_result::<u64,&'static str>(n - 1,my_err );
+            // { fibonacci_slow_result(n - 1,my_err + fibonacci_slow_result(n - 2,my_err));
+        
+        
+            Ok(n)
+        }
+        }
+        
+    }
+
+
 #[inline]
 pub fn fibonacci_fast(n: u64) -> u64 {
     let mut a: u64 = 0;
